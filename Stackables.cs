@@ -8,16 +8,15 @@ using Terraria.UI;
 
 namespace Stackables {
 
+	
 	public class Stackables : Mod {
 		
 		public override void Load() {
 			IL_ItemSlot.RightClick_ItemArray_int_int += rightClickIlEdit;
-			//IL_WorldGen.AddBuriedChest_int_int_int_bool_int_bool_ushort += noPrefix;
 		}
 		
 		public override void Unload() {
 			IL_ItemSlot.RightClick_ItemArray_int_int -= rightClickIlEdit;
-			//IL_WorldGen.AddBuriedChest_int_int_int_bool_int_bool_ushort -= noPrefix;
 		}
 		
 		private static void rightClickIlEdit(ILContext context) {
@@ -30,21 +29,13 @@ namespace Stackables {
 				cursor.Emit(OpCodes.Ldfld, stackRef);
 			}
 		}
-
-		/*private static void noPrefix(ILContext context) {
-			var cursor = new ILCursor(context);
-			var prefixRef = typeof(Item).GetMethod("Prefix");
-			if (prefixRef == null) throw new Exception("Prefix reference not found");
-			while (cursor.TryGotoNext(i => i.MatchCallvirt(prefixRef))) {
-				if (cursor.Prev.OpCode != OpCodes.Ldc_I4_M1) continue;
-				cursor.GotoPrev();
-				cursor.Remove();
-				cursor.Emit(OpCodes.Ldc_I4_0);
-			}
-		}*/
+		
 	}
 	
+	
+	
 	class StackablesGlobalItem : GlobalItem {
+		
 		public override void SetDefaults(Item item) {
 			base.SetDefaults(item);
 			if (item.IsACoin || !(item.accessory || item.defense <= 0 || item.damage <= 0)) return;
@@ -52,7 +43,7 @@ namespace Stackables {
 			item.AllowReforgeForStackableItem = true;
 		}
 		
-		//public override void OnSpawn(Item item, IEntitySource source) => item.prefix = 0;
 	}
+	
 	
 }
