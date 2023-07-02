@@ -1,0 +1,5 @@
+- Increases stack size of all equipable items that have the same prefix to 9999
+- Fixes a few bugs with stackable equipables that other mods don't address, such as not being able to right-click equip them or reforge them
+- Items that now stack include armour, accessories, weapons
+- Prevents items that are dropped by enemies or found in chests from having prefixes, which allows them to stack easily, which reduces inventory clutter
+- This mod has not been tested much and may be incompatible with other mods

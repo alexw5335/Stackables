@@ -1,0 +1,3 @@
+displayName = Stackables
+author = Placeholder
+version = 1.0
